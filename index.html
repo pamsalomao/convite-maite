@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7a6c8" />
+  <title>Convite da Maitê</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <section id="cover" class="screen active art-screen" aria-label="Abrir convite">
+      <div class="art-wrap">
+        <img src="assets/capa.png" alt="Você recebeu um convite especial" draggable="false" />
+        <button id="openInvite" class="hotspot cover-open" aria-label="Abrir convite"></button>
+      </div>
+    </section>
+
+    <section id="videoScreen" class="screen video-screen" aria-label="Vídeo do convite">
+      <video id="inviteVideo" playsinline preload="auto" src="assets/convite.mp4"></video>
+      <button id="skipVideo" class="skip" type="button">Pular vídeo</button>
+    </section>
+
+    <section id="mainInvite" class="screen art-screen" aria-label="Convite da Maitê">
+      <div class="art-wrap">
+        <img src="assets/principal.png" alt="Convite de aniversário da Maitê" draggable="false" />
+        <a class="hotspot main-location" aria-label="Abrir localização da festa" href="https://www.google.com/maps/search/?api=1&query=Rua%20Eboli%2C%20186%2C%20S%C3%A3o%20Jo%C3%A3o%20Novo%2C%20S%C3%A3o%20Roque%2C%20SP" target="_blank" rel="noopener"></a>
+        <button id="openRsvp" class="hotspot main-rsvp" aria-label="Confirmar presença"></button>
+        <button id="openGifts" class="hotspot main-gifts" aria-label="Ver sugestões de presente"></button>
+      </div>
+    </section>
+
+    <section id="gifts" class="screen art-screen subpage" aria-label="Sugestões de presente">
+      <div class="art-wrap">
+        <img src="assets/presentes.png" alt="Sugestões de presente para Maitê" draggable="false" />
+        <button class="back" data-back type="button" aria-label="Voltar ao convite">‹</button>
+      </div>
+    </section>
+
+    <section id="rsvp" class="screen art-screen subpage" aria-label="Confirmar presença">
+      <div class="art-wrap rsvp-wrap">
+        <img src="assets/rsvp.png" alt="Formulário de confirmação de presença" draggable="false" />
+        <button class="back" data-back type="button" aria-label="Voltar ao convite">‹</button>
+        <form id="rsvpForm" autocomplete="on">
+          <input id="guestName" class="overlay-input name-input" name="nome" type="text" autocomplete="name" placeholder="Digite seu nome aqui" aria-label="Seu nome" required />
+          <input id="companions" class="overlay-input companions-input" name="acompanhantes" type="text" placeholder="Nomes separados por vírgula" aria-label="Acompanhantes" />
+          <button id="submitRsvp" class="hotspot rsvp-submit" type="submit" aria-label="Confirmar presença"></button>
+        </form>
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
