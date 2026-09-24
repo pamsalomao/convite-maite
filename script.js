@@ -13,7 +13,10 @@ async function startInvite() {
   try { video.currentTime = 0; await video.play(); }
   catch (_) { video.controls = true; }
 }
-function finishVideo(){ video.pause(); show('mainInvite'); }
+function finishVideo(){
+  video.pause();
+  show('mainInvite');
+}
 
 document.getElementById('openInvite').addEventListener('click', startInvite);
 document.getElementById('skipVideo').addEventListener('click', finishVideo);
@@ -45,7 +48,7 @@ document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
     });
     const data = await res.json();
     if (!data.sucesso) throw new Error(data.mensagem || 'Erro ao confirmar');
-    message(data.mensagem || 'Presença confirmada! 💕');
+    message(`Presença confirmada! 💕\nA Maitê espera por você, ${nome}!`);
     e.target.reset();
   } catch (err) {
     message('Não consegui confirmar agora. Tente novamente em instantes. 💗', false);
