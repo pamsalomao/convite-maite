@@ -170,24 +170,35 @@ button,a,input { -webkit-tap-highlight-color:transparent; }
 .rsvp-submit { pointer-events:auto; left:20%; top:65.5%; width:60%; height:7.8%; }
 
 .toast {
-  display:none;
+  display:block;
   position:fixed;
-  z-index:30;
+  z-index:100;
   left:50%;
-  bottom:calc(24px + env(safe-area-inset-bottom));
-  transform:translateX(-50%);
-  width:min(88vw,460px);
-  padding:14px 18px;
-  border-radius:18px;
-  background:rgba(83,34,77,.94);
+  top:50%;
+  bottom:auto;
+  transform:translate(-50%,-50%) scale(.94);
+  width:min(86vw,430px);
+  padding:24px 22px;
+  border-radius:24px;
+  background:rgba(83,34,77,.96);
   color:white;
-  line-height:1.35;
+  line-height:1.4;
   text-align:center;
-  font-size:15px;
-  box-shadow:0 8px 30px rgba(0,0,0,.2);
+  white-space:pre-line;
+  font-size:clamp(18px,4.7vw,23px);
+  font-weight:700;
+  box-shadow:0 14px 42px rgba(0,0,0,.28);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
 }
 
-.toast.show { display:block; }
+.toast.show {
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,-50%) scale(1);
+}
 
 @media (min-width:577px) {
   body { background:#efd0dd; }
